@@ -23,7 +23,18 @@ Results for Siamese Model:
 </p>
 
 
-Few images showing similarity score:  
+Few images showing Dissimilarity score:  
+<p align="center">
+  <img src="assets/Dissimilarity_1.png" width="60%">
+</p>
+
+<p align="center">
+  <img src="assets/Dissimilarity_2.png" width="60%">
+</p>
+
+<p align="center">
+  <img src="assets/Dissimilarity_3.png" width="60%">
+</p>
 
 
 
