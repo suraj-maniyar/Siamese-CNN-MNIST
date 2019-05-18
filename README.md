@@ -19,7 +19,7 @@ Results for Classification Model:
 
 Results for Siamese Model:  
 <p align="center">
-  <img src="assets/siamese_loss.png" width="60%">
+  <img src="assets/siamese_loss.png" width="80%">
 </p>
 
 
