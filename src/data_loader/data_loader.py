@@ -4,6 +4,7 @@ import struct
 from sklearn.model_selection import train_test_split
 
 from torch.utils.data import Dataset
+import random
 
 def read_idx(filename):
     with open(filename, 'rb') as f:
@@ -54,3 +55,36 @@ class MyDataset(Dataset):
 
     def __getitem__(self, index):
         return (self.X[index], self.Y[index])
+
+
+class MySiameseDataset(Dataset):
+    def __init__(self, X, Y, transform=None):
+        #y_sorted = Y.argsort()
+        #X = X[y_sorted[::-1]]
+        #Y = Y[y_sorted[::-1]]
+        self.X = X
+        self.Y = Y
+        self.transform = transform
+
+    def __len__(self):
+        return int(self.X.shape[0])
+
+    def __getitem__(self, index):
+
+        X1 = self.X[index]
+        Y = 1
+        ind = random.randrange(0, self.X.shape[0])
+        X2 = self.X[ind]
+        if ind == index:
+            Y = 0
+
+        # Look for same images
+        if random.choice([True, False]):
+            while True:
+                ind = random.randrange(0, self.X.shape[0])
+                if(self.Y[index] == self.Y[ind]):
+                    X2 = self.X[ind]
+                    Y = 0
+                    break
+
+        return (X1, X2, Y)
